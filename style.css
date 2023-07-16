@@ -1,0 +1,479 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo&family=Ubuntu:wght@300;400;700&display=swap');
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+/* Some basic CSS overrides */
+
+.para {
+    line-height: 0%;
+    font-weight: lighter;
+    font-size: 1rem;
+
+}
+
+.loader-wrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 201;
+    background-color: #562e5a;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-text {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, Helvetica, sans-serif;
+    color: #eee;
+    padding-top: 1rem;
+    padding-left: 0.4rem;
+}
+
+.loader {
+    user-select: none;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.loader img {
+    width: 85%;
+    flex-shrink: 0;
+    height: auto;
+}
+
+.loader:before,
+.loader:after {
+    content: '';
+    border-radius: 50%;
+    position: absolute;
+    overflow: hidden;
+    inset: 0;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.3) inset;
+
+}
+
+.loader:after {
+    box-shadow: 0 2px 0 var(--prim-clr) inset;
+    animation: rotate 2s linear infinite;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+a {
+    color: inherit;
+}
+
+footer a {
+    color: #eee;
+    text-decoration: none;
+    align-items: center;
+    overflow: visible;
+    text-decoration: underline;
+}
+
+footer a:hover {
+    color: var(--prim-clr);
+}
+
+.home {
+    font-size: 1rem;
+    display: inline;
+    color: white;
+    text-decoration: underline;
+
+}
+
+footer {
+    gap: 1rem;
+    padding: 2rem 0;
+    font-weight: 200;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 3rem;
+    background-color: rgb(43, 43, 43);
+    color: #eee;
+    display: flex;
+    text-align: center;
+    padding: 2rem 3rem;
+    margin-top: auto;
+}
+
+/* End basic CSS override */
+.gradient {
+    background: linear-gradient(-45deg, #252525, #484848, var(--prim-clr));
+    background-size: 400% 400%;
+    animation: gradient-bg 60s ease-in-out infinite;
+    -webkit-animation: gradient-bg 60s ease-in-out infinite;
+}
+
+@keyframes gradient-bg {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 3rem;
+    max-width: 450px;
+    background-color: #1b2028;
+    border-radius: 16px;
+    position: relative;
+    border: 3px solid transparent;
+    background-clip: padding-box;
+    text-align: center;
+    color: #f1f3f3;
+    background-image: linear-gradient(135deg,
+            rgba(#752e7c, 0.35),
+            rgba(#734a58, 0.1) 15%,
+            #1b2028 20%,
+            #1b2028 100%);
+
+    &:after {
+        content: "";
+        display: block;
+        top: -3px;
+        left: -3px;
+        bottom: -3px;
+        right: -3px;
+        z-index: -1;
+        position: absolute;
+        border-radius: 16px;
+        background-image: linear-gradient(135deg,
+                #752e7c,
+                #734a58 20%,
+                #1b2028 30%,
+                #2c333e 100%);
+    }
+}
+
+
+:root {
+    /*Palette*/
+    --prim-clr: #8F43EE;
+    --pim-clr-light: hsl(239, 94%, 40%);
+    --sec-clr: #abdcf6;
+    --tertiary-clr: #00B4D8;
+    --bg-clr: #e7f6fa;
+    --bg-clr-light: hsl(190, 77%, 90%);
+    /*Fonts*/
+    --ff-regular: 'Ubuntu', sans-serif;
+    --fw-light: 300;
+    --fw-regular: 400;
+    --fw-bold: 700;
+    --form-control-color: rebeccapurple;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 4px;
+    margin: 10% auto;
+
+    position: relative;
+    padding: 34px;
+    color: #444;
+
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        background-color: #ccc;
+        left: 20px;
+        right: 20px;
+        bottom: 0;
+        top: 50%;
+        z-index: -1;
+        box-shadow: 0 0 40px lighten(#000, 60%);
+        transition: box-shadow .2s ease-in-out;
+    }
+
+    &.level-3 {
+        &:hover {
+            &:before {
+                box-shadow: 0 0 80px lighten(#000, 60%);
+            }
+        }
+    }
+
+    h5 {
+        font-weight: 300;
+        font-size: 30px;
+    }
+}
+
+.container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+/* css reset  */
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/*
+  2. Remove default margin
+*/
+* {
+    margin: 0;
+}
+
+/*
+  Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
+body {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+    color: var(--prim-clr);
+    background-color: #484848;
+    font-family: var(--ff-regular);
+    font-weight: var(--fw-regular);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    height: 100vh;
+}
+
+/*
+  5. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/*
+  6. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/*
+  7. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+.Style {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.courseNameStyle {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+
+
+.tittle {
+    display: block;
+}
+
+
+.header {
+    line-height: 1.7rem;
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+    margin-bottom: auto;
+    padding: 1.45rem;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    background-color: rgb(43, 43, 43);
+}
+
+.header h1 {
+    margin-right: auto;
+}
+
+h1,
+h2 {
+    text-align: center;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="number"] {
+    min-width: 100px;
+    margin: 0.5rem;
+}
+
+.buttons {
+    display: flex;
+}
+
+
+
+.input {
+    border-radius: 10px;
+    outline: 2px solid var(--prim-clr);
+    border: 0;
+    background-color: #e2e2e2;
+    outline-offset: 3px;
+    padding: 10px .8rem;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+}
+
+.input:focus {
+    outline-offset: 5px;
+    background-color: #fff
+}
+
+button {
+    margin: 0 0.55rem;
+    padding: 1.3em 3em;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+}
+
+button:hover {
+    background-color: var(--prim-clr);
+    box-shadow: 0px 15px 20px #401144;
+    color: #fff;
+    transform: translateY(-3px);
+    -webkit-transform: translateY(-3px);
+    -moz-transform: translateY(-3px);
+    -ms-transform: translateY(-3px);
+    -o-transform: translateY(-3px);
+}
+
+button:active {
+    transform: translateY(-1px);
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+#gpa {
+    font-weight: bold;
+}
+
+.lan {
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+}
+
+
+
+
+.courselists {
+    text-align: start;
+    margin-top: 2rem;
+    display: flex;
+    min-width: 100%;
+}
+
+.courselists ul {
+    width: 100%;
+
+}
+
+.courselists li {
+    display: flex;
+    margin: 1rem 0;
+    flex: 1;
+    width: inherit;
+}
+
+.courselists button {
+    margin-left: auto;
+    padding: 0.3rem;
+    color: white;
+    background-color: rgb(204, 77, 77);
+}
+
+.courselists button:hover {
+    box-shadow: none;
+    transform: none;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+}

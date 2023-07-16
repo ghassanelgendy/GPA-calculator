@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>GPA Calculator</title>
-		<link rel="stylesheet" href="./css/style.css" />
+		<link rel="stylesheet" href="style.css" />
 		<link
 			rel="apple-touch-icon"
 			sizes="180x180"
@@ -35,8 +35,106 @@
 			content="https://ghassanelgendy.github.io/assets/favicon/browserconfig.xml" />
 		<meta name="theme-color" content="#ffffff" />
 	</head>
-	<body>
-		<h1 class="title">Easy GPA Calculator</h1>
-		<p class="description">Fill the info below and click calculate!</p>
+	<body class="gradient">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+		<script>
+			$(window).on("load", function () {
+				$(".loader-wrapper").fadeOut("slow");
+			});
+		</script>
+		<div class="loader-wrapper">
+			<span class="loader"> <img src="./coding.png" alt="" /></span>
+			<div class="loading-text">Loading...</div>
+		</div>
+		<div class="header">
+			<h1>
+				GPA Calculator <br />
+				<span class="para">For FCAI</span>
+				<div class="img-container"><img src="" alt="" /></div>
+			</h1>
+			<!-- Translation button -->
+			<div id="translationContainer">
+				<div class="buttons">
+					<button class="lan" onclick="changeLanguage('en')">English</button>
+					<button class="lan" onclick="changeLanguage('ar')">العربية</button>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<article class="profile">
+				<form id="gpaForm">
+					<!-- Input fields for course name, grade, and credit -->
+					<div class="Style">
+						<label for="courseName"
+							><span class="tittle" id="courseNaming">Course Name:</span></label
+						>
+						<input
+							type="text"
+							id="courseName"
+							name="courseName"
+							class="input"
+							placeholder="Optional" />
+					</div>
+					<div class="Style">
+						<label for="grade" id="gradeLabel"
+							><span class="tittle">Course Grade:</span></label
+						>
+						<select class="input" id="grade" name="grade" required>
+							<option value="A+">A+</option>
+							<option value="A">A</option>
+							<option value="B+">B+</option>
+							<option value="B">B</option>
+							<option value="C+">C+</option>
+							<option value="C">C</option>
+							<option value="D+">D+</option>
+							<option value="D">D</option>
+							<option value="F">F</option>
+						</select>
+					</div>
+					<div class="Style">
+						<label for="credit" id="creditLabel">Credit Hours:</label>
+
+						<div class="radio-input">
+							<label>
+								<input
+									class="radio"
+									type="radio"
+									id="credit2"
+									name="credit"
+									value="2"
+									required /><span class="Hours" id="hoursLabel2">2 Hours</span>
+							</label>
+							<label>
+								<input
+									type="radio"
+									class="radio"
+									id="credit3"
+									name="credit"
+									value="3" />
+								<span id="hoursLabel3">3 Hours</span>
+							</label>
+							<span class="selection"></span>
+						</div>
+					</div>
+
+					<button type="button" onclick="addCourse()" id="addCourseLabel">
+						Add Course
+					</button>
+				</form>
+				<h2 id="gpaLabel">
+					<span class="tittle">Your GPA:</span>
+					<h2 id="gpa">0.00</h2>
+				</h2>
+				<div class="courselists">
+					<ul id="courseList"></ul>
+				</div>
+			</article>
+		</div>
+		<footer>
+			<p>Made with 🍪 and ☕ by Ghassan Elgendy</p>
+			<a href="https://github.com/ghassanelgendy" target="_blank">GitHub </a>
+		</footer>
+
+		<script src="script.js"></script>
 	</body>
 </html>
