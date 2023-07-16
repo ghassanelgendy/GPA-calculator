@@ -34,6 +34,7 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 /*
@@ -49,10 +50,9 @@
   4. Improve text rendering
 */
 body {
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     user-select: none;
     color: var(--prim-clr);
     font-family: var(--ff-regular);
@@ -189,20 +189,20 @@ h6 {
 }
 
 .card {
+    margin-bottom: 1rem;
+    flex-shrink: 0;
     display: flex;
     align-items: center;
     flex-direction: column;
     padding: 2rem;
-    max-width: 450px;
+    max-width: 900px;
     background-color: rgb(43, 43, 43);
-    ;
     border-radius: 16px;
     position: relative;
     border: px solid transparent;
     background-clip: padding-box;
     text-align: center;
     color: #f1f3f3;
-
     background-image: linear-gradient(135deg,
             rgba(#4b1d4f, 0.35),
             rgba(#734a58, 0.1) 15%,
@@ -230,9 +230,11 @@ h6 {
 
 
 .container {
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
     align-items: center;
     display: flex;
-    margin-bottom: 1rem;
     flex-direction: column;
 }
 
@@ -240,9 +242,9 @@ h6 {
 .Style {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 0.5rem;
-    padding: 1rem;
+    padding: .5rem;
 }
 
 .header {
@@ -250,10 +252,11 @@ h6 {
     display: flex;
     width: 100vw;
     justify-content: center;
+    align-items: center;
     margin-bottom: auto;
     padding: 1.45rem;
     gap: 2rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     background-color: rgb(43, 43, 43);
 }
 
@@ -310,7 +313,7 @@ input[type="number"] {
 
 button {
     margin: 0.2rem 0.55rem;
-    padding: 0.5rem 2.6rem;
+    padding: 0.7rem 2.6rem;
     font-size: 12px;
     text-transform: uppercase;
     font-weight: 500;
@@ -350,8 +353,7 @@ ul {
 }
 
 .lan {
-    padding-top: 0.6rem;
-    padding-bottom: 0.6rem;
+    padding: 0.3rem 1.3rem;
 }
 
 
@@ -403,9 +405,10 @@ footer a:hover {
 
 
 footer {
+    flex: 0;
     gap: 1rem;
-    padding: 2rem 0;
-    font-weight: 200;
+    padding: 2.5rem 2rem;
+    font-weight: 500;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -415,12 +418,18 @@ footer {
     color: #eee;
     display: flex;
     text-align: center;
-    padding: 2rem 3rem;
     margin-top: auto;
 }
 
-@media (max-width: 768px) {
-    .footer {
-        background-color: red;
+@media only screen and (max-width: 500px) {
+
+    .input {
+        border: none;
+        outline: none;
+    }
+
+    .input:focus {
+        border: var(--prim-clr) solid 2px;
+        outline: var(--prim-clr);
     }
 }
