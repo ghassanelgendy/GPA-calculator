@@ -120,7 +120,7 @@ footer {
 
 /* End basic CSS override */
 .gradient {
-    background: linear-gradient(-45deg, #252525, #484848, var(--prim-clr));
+    background: linear-gradient(-45deg, #7a1c75, #484848, var(--prim-clr));
     background-size: 400% 400%;
     animation: gradient-bg 60s ease-in-out infinite;
     -webkit-animation: gradient-bg 60s ease-in-out infinite;
