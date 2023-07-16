@@ -8,7 +8,9 @@ function changeLanguage(lang) {
 	language = lang;
 	applyTranslations();
 }
-
+$(".close").click(function () {
+	$(this).parent(".alert").fadeOut();
+});
 // Apply translations based on the selected language
 function applyTranslations() {
 	const translations = {
