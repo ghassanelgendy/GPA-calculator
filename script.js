@@ -212,7 +212,7 @@ function getGradePoints(grade) {
 applyTranslations();
 
 // Handle Enter key press to submit the form
-const form = document.getElementById("gpaForm");
+const form = document.querySelector(".container");
 form.addEventListener("keydown", (event) => {
 	if (event.key === "Enter") {
 		event.preventDefault();
