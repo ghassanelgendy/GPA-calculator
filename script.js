@@ -15,6 +15,8 @@ $(".close").click(function () {
 function applyTranslations() {
 	const translations = {
 		en: {
+			alertLabel:
+				"Courses list is autosaved,\n you can close the tab and come back next term!",
 			gradeLabel: "Grade:",
 			creditLabel: "Credit Hours:",
 			hoursLabel2: "2 Hours",
@@ -25,6 +27,8 @@ function applyTranslations() {
 			gpaLabel: "Your GPA:",
 		},
 		ar: {
+			alertLabel:
+				"درجات المقررات بتتحفظ على جهازك\n عشان مش كل ترم تكتب كل المواد",
 			gradeLabel: "الدرجة:",
 			courseNaming: "اسم المقرر",
 			creditLabel: "عدد الساعات:",
@@ -38,6 +42,8 @@ function applyTranslations() {
 	const translation = translations[language];
 
 	// Apply translations to HTML elements
+	document.getElementById("alert").innerText = translation.alertLabel;
+
 	document.getElementById("gradeLabel").textContent = translation.gradeLabel;
 	document.getElementById("courseNaming").textContent =
 		translation.courseNaming;
