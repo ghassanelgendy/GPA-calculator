@@ -1,10 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Cairo&family=Ubuntu:wght@300;400;700&display=swap');
 
+
 *,
 *:before,
 *:after {
     box-sizing: border-box;
 }
+
+@font-face {
+    font-family: "Cairo";
+    src: url("https://fonts.googleapis.com/css2?family=Cairo&display=swap");
+    unicode-range: U+0600-06FF;
+}
+
+/* This will only apply the font to Arabic text */
+.arabic {
+    font-family: "Cairo";
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: normal;
+}
+
 
 /* Some basic CSS overrides */
 
@@ -234,6 +250,7 @@ footer {
 .container {
     align-items: center;
     display: flex;
+    margin-bottom: 1rem;
     flex-direction: column;
 }
 
@@ -328,10 +345,6 @@ h6 {
 }
 
 
-
-.tittle {
-    display: block;
-}
 
 
 .header {

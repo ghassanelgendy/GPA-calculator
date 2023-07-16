@@ -56,7 +56,9 @@
 			<div id="translationContainer">
 				<div class="buttons">
 					<button class="lan" onclick="changeLanguage('en')">English</button>
-					<button class="lan" onclick="changeLanguage('ar')">العربية</button>
+					<button class="lan" onclick="changeLanguage('ar')">
+						<span class="arabic">العربية</span>
+					</button>
 				</div>
 			</div>
 		</div>
@@ -66,7 +68,9 @@
 					<!-- Input fields for course name, grade, and credit -->
 					<div class="Style">
 						<label for="courseName"
-							><span class="tittle" id="courseNaming">Course Name:</span></label
+							><span class="tittle arabic" id="courseNaming"
+								>Course Name:</span
+							></label
 						>
 						<input
 							type="text"
@@ -76,8 +80,8 @@
 							placeholder="Optional" />
 					</div>
 					<div class="Style">
-						<label for="grade" id="gradeLabel"
-							><span class="tittle">Course Grade:</span></label
+						<label class="arabic" for="grade" id="gradeLabel"
+							><span class="arabic tittle">Course Grade:</span></label
 						>
 						<select class="input" id="grade" name="grade" required>
 							<option value="A+">A+</option>
@@ -92,7 +96,9 @@
 						</select>
 					</div>
 					<div class="Style">
-						<label for="credit" id="creditLabel">Credit Hours:</label>
+						<label for="credit" id="creditLabel" class="arabic"
+							>Credit Hours:</label
+						>
 
 						<div class="radio-input">
 							<label>
@@ -102,7 +108,9 @@
 									id="credit2"
 									name="credit"
 									value="2"
-									required /><span class="Hours" id="hoursLabel2">2 Hours</span>
+									required /><span class="Hours arabic" id="hoursLabel2"
+									>2 Hours</span
+								>
 							</label>
 							<label>
 								<input
@@ -111,21 +119,25 @@
 									id="credit3"
 									name="credit"
 									value="3" />
-								<span id="hoursLabel3">3 Hours</span>
+								<span id="hoursLabel3" class="arabic">3 Hours</span>
 							</label>
 							<span class="selection"></span>
 						</div>
 					</div>
 
-					<button type="button" onclick="addCourse()" id="addCourseLabel">
+					<button
+						class="arabic"
+						type="button"
+						onclick="addCourse()"
+						id="addCourseLabel">
 						Add Course
 					</button>
 				</form>
-				<h2 id="gpaLabel">
-					<span class="tittle">Your GPA:</span>
+				<h2 id="gpaLabel" class="arabic">
+					<span class="arabic tittle">Your GPA:</span>
 					<h2 id="gpa">0.00</h2>
 				</h2>
-				<div class="courselists">
+				<div class="courselists arabic">
 					<ul id="courseList"></ul>
 				</div>
 			</article>
