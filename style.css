@@ -254,14 +254,14 @@ h6 {
     line-height: 1.7rem;
     display: flex;
     width: 100vw;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     margin-bottom: auto;
-    padding: 1.45rem;
+    padding: 1rem 1.4rem;
+    ;
     gap: 2rem;
     background-color: rgb(43, 43, 43);
     border-bottom: #eee 1px solid;
-
 }
 
 .header h1 {
@@ -395,19 +395,6 @@ ul {
 
 }
 
-footer a {
-    color: #eee;
-    text-decoration: none;
-    align-items: center;
-    overflow: hidden;
-    text-decoration: underline;
-}
-
-footer a:hover {
-    color: var(--prim-clr);
-}
-
-
 
 .alert {
     display: flex;
@@ -453,23 +440,26 @@ footer a:hover {
 
 
 
-footer {
-    flex: 0;
-    flex-wrap: wrap;
-    overflow: hidden;
-    gap: 2rem;
-    padding: 2.5rem 2rem;
-    font-weight: 500;
+.upperdiv {
+    background-color: rgb(43, 43, 43);
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 3rem;
-    background-color: rgb(43, 43, 43);
-    color: #eee;
-    display: flex;
+    padding: 1rem 0 1rem 1rem;
     text-align: center;
-    margin-top: auto;
+}
+
+.upperdiv a {
+    color: #9d5cec;
+    transition: all 500ms;
+    -webkit-transition: all 500ms;
+    -moz-transition: all 500ms;
+    -ms-transition: all 500ms;
+    -o-transition: all 500ms;
+}
+
+a:hover {
+    color: #fff;
 }
 
 @media only screen and (max-width: 500px) {
@@ -481,6 +471,11 @@ footer {
     .input {
         border: none;
         outline: none;
+    }
+
+    .header {
+        padding: 0.8rem 0.5rem;
+
     }
 
     .input:focus {
@@ -498,7 +493,7 @@ footer {
         height: auto;
         color: #eee;
         margin: 1rem;
-        padding: 3.5rem;
+        padding: 2.8rem;
         position: relative;
         border-radius: 1rem;
         -webkit-border-radius: 1rem;
@@ -507,41 +502,24 @@ footer {
         -o-border-radius: 1rem;
     }
 
-    footer {
-        background-color: red;
-        flex: 0;
-        font-family: var(--ff-regular);
-        font-weight: var(--fw-light);
-        display: flex;
-        align-items: center;
-        width: 100%;
-        min-height: 3rem;
-        background-color: rgb(43, 43, 43);
-        color: #eee;
-        padding: 0;
-        padding-top: 1rem;
-        padding-bottom: 2rem;
-        display: flex;
-        text-align: center;
-        justify-content: center;
+    .lan {
+        padding: 0.1rem 0.9rem;
     }
 
-    footer a {
-        color: #eee;
-        text-decoration: none;
-        overflow: hidden;
-        text-decoration: underline;
+    .para {
+        display: none;
     }
 
-    footer a:hover {
-        color: var(--prim-clr);
-    }
 }
 
 @media only screen and (min-width: 800px) {
     .header {
-        padding: 1.45rem 6rem;
+        padding: 1.45rem 3rem;
+        justify-content: space-around;
+    }
 
+    .header h1 {
+        margin-right: 0;
     }
 
     .card {
