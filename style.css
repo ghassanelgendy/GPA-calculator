@@ -404,7 +404,7 @@ ul {
     min-width: 480px;
     color: #eee;
     margin: 1rem;
-    padding: 30px;
+    padding: 3rem;
     position: relative;
     border-radius: 1rem;
     -webkit-border-radius: 1rem;
@@ -437,7 +437,10 @@ ul {
     -o-border-radius: 50%;
 }
 
-
+.linko {
+    color: #bfbfbf;
+    text-decoration: none;
+}
 
 
 .upperdiv {
@@ -501,6 +504,7 @@ a:hover {
         -ms-border-radius: 1rem;
         -o-border-radius: 1rem;
     }
+
 
     .lan {
         padding: 0.1rem 0.9rem;
