@@ -87,6 +87,11 @@ function addCourse() {
 		}
 	}
 
+	if (isNaN(credit)) {
+		alert("Please select a valid credit hour.");
+		return;
+	}
+
 	const grade = gradeSelect.value;
 	const courseName = courseNameInput.value || "Unnamed Course";
 
@@ -95,7 +100,9 @@ function addCourse() {
 
 	// Create a new list item to display the course
 	const listItem = document.createElement("li");
-	listItem.textContent = `${courseName}: ${grade} (${credit} credits)`;
+	listItem.textContent = `${courseName}: ${grade} (${credit} credit${
+		credit === 1 ? "" : "s"
+	})`;
 
 	const removeButton = document.createElement("button");
 	removeButton.classList.add("removeButton");
@@ -149,7 +156,9 @@ function displayCourses() {
 		const { courseName, grade, credit } = course;
 
 		const listItem = document.createElement("li");
-		listItem.textContent = `${courseName}: ${grade} (${credit} credits)`;
+		listItem.textContent = `${courseName}: ${grade} (${credit} credit${
+			credit === 1 ? "" : "s"
+		})`;
 
 		const removeButton = document.createElement("button");
 		removeButton.classList.add("removeButton");
@@ -200,6 +209,8 @@ function getGradePoints(grade) {
 			return 2.2;
 		case "D":
 			return 2;
+		case "F":
+			return 0.0;
 		default:
 			return 0.0;
 	}
