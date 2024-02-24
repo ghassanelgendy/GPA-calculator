@@ -8,9 +8,11 @@ function changeLanguage(lang) {
 	language = lang;
 	applyTranslations();
 }
+
 $(".close").click(function () {
 	$(this).parent(".alert").fadeOut();
 });
+
 // Apply translations based on the selected language
 function applyTranslations() {
 	const translations = {
@@ -71,6 +73,7 @@ if (localStorage.getItem("courses")) {
 	displayCourses();
 	calculateGPA();
 	applyTranslations(); // Update translations after loading saved courses
+	document.getElementById("alert").parentNode.style.display = "none";
 }
 
 // Add a course to the list
@@ -185,9 +188,11 @@ function calculateGPA() {
 		totalCredits += credit;
 		totalGradePoints += gradePoints * credit;
 	}
-
 	const gpa = (totalGradePoints / totalCredits).toFixed(2);
 	document.querySelector("#gpa").textContent = gpa;
+	if (document.querySelector("#gpa").textContent == "NaN") {
+		document.querySelector("#gpa").textContent = "0.0";
+	}
 }
 
 // convert grade to grade points
