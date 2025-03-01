@@ -247,6 +247,7 @@ function calculateGPA() {
 
 		totalCredits += credit;
 		totalGradePoints += gradePoints * credit;
+		document.getElementById("totalCrdts").textContent = totalCredits;
 	}
 	const gpa = (totalGradePoints / totalCredits).toFixed(2);
 	document.querySelector("#gpa").textContent = gpa;
@@ -332,5 +333,6 @@ document.getElementById("clearAll").addEventListener("click", function () {
 	courses = []; // Reset the courses array
 	localStorage.removeItem("courses"); // Remove saved courses from localStorage
 	document.getElementById("courseList").innerHTML = ""; // Clear displayed courses
-	document.getElementById("gpa").innerText = "0.00"; // Reset GPA display
+	document.getElementById("gpa").innerText = "0.0"; // Reset GPA display
+	document.getElementById("totalCrdts").innerText = "0";
 });
