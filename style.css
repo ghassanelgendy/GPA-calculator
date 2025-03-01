@@ -532,3 +532,18 @@ a:hover {
 
 
 }
+
+
+.clear-btn {
+    background-color: red;
+    color: white;
+}
+
+.cardo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+}

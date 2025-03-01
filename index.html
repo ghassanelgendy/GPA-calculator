@@ -34,6 +34,9 @@
 			name="msapplication-config"
 			content="https://ghassanelgendy.github.io/assets/favicon/browserconfig.xml" />
 		<meta name="theme-color" content="#ffffff" />
+		<script src="https://unpkg.com/@popperjs/core@2"></script>
+		<script src="https://unpkg.com/tippy.js@6"></script>
+		<link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/tippy.css" />
 	</head>
 	<body class="gradient">
 		<script
@@ -159,6 +162,29 @@
 				</h3>
 				<div class="courselists arabic">
 					<ul id="courseList"></ul>
+				</div>
+				<div class="cardo">
+					<label for="totalHours">Total Credit Hours Taken:</label>
+					<input
+						type="number"
+						id="totalHours"
+						class="input"
+						min="0"
+						placeholder="e.g. 90"
+						required />
+
+					<label for="currentGPA">Current GPA:</label>
+					<input
+						type="number"
+						min="0"
+						id="currentGPA"
+						step="0.01"
+						class="input"
+						placeholder="e.g. 2.81"
+						required />
+
+					<button id="calcCumulativce" class="calc-btn">Add Current GPA</button>
+					<button id="clearAll" class="clear-btn">Clear All Courses</button>
 				</div>
 				<div class="howItWorks">
 					<a class="linko" href="./bylaw-page-12.pdf" download="bylaw-page-12"

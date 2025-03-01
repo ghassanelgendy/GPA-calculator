@@ -3,6 +3,62 @@ let courses = [];
 
 let language = "en";
 
+document.addEventListener("DOMContentLoaded", () => {
+	tippy("#totalHours", {
+		content:
+			"Da lw 3ayz tehseb elGPA w mkasel tektb kool elmawad, Ektb your total hours.",
+		trigger: "mouseenter focus",
+		touch: true,
+	});
+
+	tippy("#currentGPA", {
+		content: "Ekteb baa elGPA bta3k now.",
+		trigger: "mouseenter focus",
+		touch: true,
+	});
+
+	tippy("#courseNaming", {
+		content: "Optional: Enter the course name.",
+		trigger: "mouseenter focus",
+		touch: true,
+	});
+	tippy("#calcCumulativce", {
+		content:
+			"Adds your current GPA as a Course so you can predict your GPA and play around. ",
+		trigger: "mouseenter focus",
+		touch: true,
+	});
+	tippy("#gradeLabel", {
+		content: "Select the grade you received for the course.",
+		trigger: "mouseenter focus",
+		touch: true,
+	});
+
+	tippy("#creditLabel", {
+		content: "Choose the credit hours for this course.",
+		trigger: "mouseenter focus",
+		touch: true,
+	});
+
+	tippy("#addCourseLabel", {
+		content: "Click to add the course to your GPA calculation.",
+		trigger: "mouseenter focus",
+		touch: true,
+	});
+
+	tippy("#clearAll", {
+		content: "Click to remove all courses from the list.",
+		trigger: "mouseenter focus",
+		touch: true,
+	});
+
+	tippy("#toggleDarkMode", {
+		content: "Toggle between dark and light mode.",
+		trigger: "mouseenter focus",
+		touch: true,
+	});
+});
+
 // Function to change the language
 function changeLanguage(lang) {
 	language = lang;
@@ -171,7 +227,6 @@ function displayCourses() {
 		});
 
 		listItem.appendChild(removeButton);
-
 		courseList.appendChild(listItem);
 	}
 }
@@ -183,7 +238,12 @@ function calculateGPA() {
 
 	for (const course of courses) {
 		const { grade, credit } = course;
-		const gradePoints = getGradePoints(grade);
+		if (typeof grade == "number") {
+			gradePoints = grade;
+		}
+		if (typeof grade == "string") {
+			gradePoints = getGradePoints(grade);
+		}
 
 		totalCredits += credit;
 		totalGradePoints += gradePoints * credit;
@@ -231,4 +291,46 @@ form.addEventListener("keydown", (event) => {
 		event.preventDefault();
 		addCourse();
 	}
+});
+document
+	.getElementById("calcCumulativce")
+	.addEventListener("click", function () {
+		// Get the values from input fields
+		let totalHours = parseInt(document.getElementById("totalHours").value) || 0;
+		let currentGPA =
+			parseFloat(document.getElementById("currentGPA").value) || 0.0;
+
+		// Add the Current GPA as a course
+		courses.push({
+			courseName: "Current GPA",
+			grade: currentGPA,
+			credit: totalHours,
+		});
+		saveCourses(); // Save to local storage
+		displayCourses(); // Display updated list
+		calculateGPA(); // Recalculate GPA
+		applyTranslations(); // Ensure proper language updates
+
+		console.log(
+			`Added Current GPA as a course: ${currentGPA} (${letterGrade}) with ${totalHours} credit hours.`
+		);
+	});
+
+// Function to convert GPA to an approximate letter grade
+function convertGPAtoGrade(gpa) {
+	if (gpa >= 3.7) return "A";
+	if (gpa >= 3.3) return "B+";
+	if (gpa >= 3.0) return "B";
+	if (gpa >= 2.7) return "C+";
+	if (gpa >= 2.4) return "C";
+	if (gpa >= 2.2) return "D+";
+	if (gpa >= 2.0) return "D";
+	return "F";
+}
+
+document.getElementById("clearAll").addEventListener("click", function () {
+	courses = []; // Reset the courses array
+	localStorage.removeItem("courses"); // Remove saved courses from localStorage
+	document.getElementById("courseList").innerHTML = ""; // Clear displayed courses
+	document.getElementById("gpa").innerText = "0.00"; // Reset GPA display
 });
